@@ -1,4 +1,11 @@
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import React, { useEffect } from "react";
+
 function Home() {
+  useEffect(() => {
+SpeedInsights.track();
+  }, []);
+  
     return (
       <div> 
         <h1>My portfolio</h1>
