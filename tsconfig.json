@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx", // JSX の設定を統一
+    "jsx": "preserve", // JSX の設定を統一
     "strict": true,
     "baseUrl": "./", // プロジェクトのルートを基準に
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,
@@ -13,11 +17,18 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "app", // app-router を使用する場合、app フォルダを含める
     "types" // 型定義ファイルを含める
+    ,
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
