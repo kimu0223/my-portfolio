@@ -3,6 +3,9 @@
     "jsx": "preserve", // JSX の設定を統一
     "strict": true,
     "baseUrl": "./", // プロジェクトのルートを基準に
+    "paths": {
+      "@/*": ["./*"]
+    },
     "target": "ES2017",
     "lib": [
       "dom",
