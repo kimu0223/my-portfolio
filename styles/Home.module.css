@@ -1,0 +1,76 @@
+.field {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  background-color: #008000; /* 芝生の色 */
+  border: 2px solid white;
+  margin: 2rem auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.centerLine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: white;
+  transform: translateX(-50%);
+}
+
+.centerCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.player, .coach {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #ff4500; /* 選手の色 */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.player:hover, .coach:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.coach {
+  background-color: #333; /* 監督の色 */
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+
+/* 4-3-3 Formation */
+/* Goalkeeper */
+.gk { top: 50%; left: 15%; transform: translateY(-50%); background-color: #ffff00; color: #333; }
+/* Defenders */
+.df1 { top: 20%; left: 30%; }
+.df2 { top: 40%; left: 35%; }
+.df3 { top: 60%; left: 35%; }
+.df4 { top: 80%; left: 30%; }
+/* Midfielders */
+.mf1 { top: 30%; left: 55%; }
+.mf2 { top: 50%; left: 60%; transform: translateY(-50%); }
+.mf3 { top: 70%; left: 55%; }
+/* Forwards */
+.fw1 { top: 20%; left: 80%; }
+.fw2 { top: 50%; left: 85%; transform: translateY(-50%); }
+.fw3 { top: 80%; left: 80%; }
