@@ -1,13 +1,13 @@
 import { getDetail } from "@/lib/microcms";
 import { notFound } from "next/navigation";
 
-// 動的なメタデータを生成
-export async function generateMetadata({
-  params: { id },
-}: {
+type Props = {
   params: { id: string };
-}) {
-  const post = await getDetail(id).catch(() => null);
+};
+
+// 動的なメタデータを生成
+export async function generateMetadata({ params }: Props) {
+  const post = await getDetail(params.id).catch(() => null);
 
   if (!post) {
     return {
@@ -23,12 +23,8 @@ export async function generateMetadata({
 }
 
 // 記事詳細ページ
-export default async function StaticDetailPage({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
-  const post = await getDetail(id).catch(() => null);
+export default async function StaticDetailPage({ params }: Props) {
+  const post = await getDetail(params.id).catch(() => null);
 
   if (!post) {
     notFound();
