@@ -1,9 +1,22 @@
-import { getDetail } from "@/lib/microcms";
+import { getDetail, getListIds } from "@/lib/microcms";
 import { notFound } from "next/navigation";
 
 type Props = {
   params: { id: string };
 };
+
+// SSG用のパスを生成
+export async function generateStaticParams() {
+  const { contents } = await getListIds();
+
+  const paths = contents.map((post) => {
+    return {
+      id: post.id,
+    };
+  });
+
+  return [...paths];
+}
 
 // 動的なメタデータを生成
 export async function generateMetadata({ params }: Props) {
