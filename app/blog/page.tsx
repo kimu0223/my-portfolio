@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { getList } from "@/lib/microcms";
 
+// キャッシュの時間を設定（60秒）
+export const revalidate = 60;
+
 export default async function StaticPage() {
   const { contents } = await getList();
 
