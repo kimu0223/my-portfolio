@@ -1,16 +1,13 @@
 import Link from "next/link";
-import { client } from "../libs/client"; // さっき作ったclientを読み込む
+import { client } from "../libs/client"; // ← ここが「..」2つではなく1つなのが正解！
 
-// MicroCMSから返ってくるデータの「型」を定義します
 type BlogPost = {
   id: string;
   title: string;
-  text: string;      // あなたの設定に合わせて content → text に変更
-  eventDate: string; // あなたの設定に合わせて追加
+  text: string;
   publishedAt: string;
 };
 
-// データを取得する関数
 async function getBlogPosts() {
   const data = await client.get({
     endpoint: "blogs",
@@ -19,7 +16,6 @@ async function getBlogPosts() {
 }
 
 export default async function BlogPage() {
-  // ここで実際のデータを取ってくる！
   const blogPosts = await getBlogPosts();
 
   return (
@@ -36,14 +32,9 @@ export default async function BlogPage() {
             className="block p-6 bg-white border-l-4 border-gray-300 shadow-md hover:shadow-xl hover:border-green-500 transition-all duration-300 rounded-r-lg"
           >
             <div className="text-sm text-gray-500 mb-2">
-              {/* 日付を綺麗に表示する */}
               {new Date(post.publishedAt).toLocaleDateString()}
             </div>
             <h2 className="text-xl font-bold mb-2 text-gray-800">{post.title}</h2>
-            {/* プレビュー用に本文の最初の方だけ表示 */}
-            <p className="text-gray-600 text-sm line-clamp-3">
-              {post.text}
-            </p>
           </Link>
         ))}
       </div>
