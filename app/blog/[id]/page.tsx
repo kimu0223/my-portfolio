@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { client } from "../../libs/client"; // clientを読み込む
 
+export const revalidate = 60; 
+// 0秒にするとISRを無効化
+//revalidate　は本来、ISRを設定する際に用いるプロパティ。
+//0に設定することで、ページがリクエストされるたびに最新のデータを取得し、SSRとして動作する。
+
 // データの型定義（一覧の時と同じです）
 type BlogPost = {
   id: string;
