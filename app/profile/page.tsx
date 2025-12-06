@@ -33,15 +33,15 @@ function Page() {
         </div>
 
         {/* スキル一覧セクション */}
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">スキル一覧</h2>
-          <p className="text-gray-600 mb-6">グラフとしてわかりやすく記載しております。<br />※個人的主観にはなるのでご了承ください</p>
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">スキル一覧</h2>
+          <p className="text-sm sm:text-base text-gray-600 mb-6">グラフとしてわかりやすく記載しております。<br />※個人的主観にはなるのでご了承ください</p>
           
           <div className="space-y-6">
             {skills.map((skill, index) => (
-              <div key={index} className="flex items-center gap-4">
-                <span className="w-24 text-sm font-semibold text-gray-700">{skill.name}</span>
-                <div className="flex-1">
+              <div key={index} className="flex items-center gap-2 sm:gap-4">
+                <span className="w-16 sm:w-24 text-xs sm:text-sm font-semibold text-gray-700 flex-shrink-0">{skill.name}</span>
+                <div className="flex-1 min-w-0">
                   <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                     <div 
                       className="bg-gradient-to-r from-indigo-500 to-blue-500 h-full rounded-full transition-all duration-500"
@@ -49,7 +49,7 @@ function Page() {
                     />
                   </div>
                 </div>
-                <span className="w-12 text-right text-sm font-bold text-indigo-600">{skill.value}%</span>
+                <span className="w-10 sm:w-12 text-right text-xs sm:text-sm font-bold text-indigo-600 flex-shrink-0">{skill.value}%</span>
               </div>
             ))}
           </div>
