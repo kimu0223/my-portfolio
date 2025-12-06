@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+// import Link from "next/link"; ← Sidebarの中に移動したので、ここでは不要なら消してもOK
+import Sidebar from "./components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,37 +26,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <div className="flex h-screen overflow-hidden">
-            <nav className="w-64 bg-gray-800 text-white flex flex-col p-4">
-              <h1 className="text-xl font-bold mb-6">ポートフォリオ</h1>
-              <ul className="space-y-4">
-                <li>
-                  <Link href="/" className="hover:text-gray-300">ホーム</Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="hover:text-gray-300">ブログ</Link>
-                </li>
-                <li>
-                  <Link href="/profile" className="hover:text-gray-300">プロフィール</Link>
-                </li>
-              </ul>
-            </nav>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        
+        <div className="flex flex-col md:flex-row h-screen overflow-hidden">
+            
+            {/* ★ここを Sidebar に置き換えるのがポイント！ */}
+            <Sidebar />
           
-          <div className="flex flex-col flex-1">
-            <main className="flex-1 overflow-auto bg-transparent">
-            {children}
-            </main>
+            <div className="flex flex-col flex-1">
+              <main className="flex-1 overflow-auto bg-transparent">
+                {children}
+              </main>
 
-         
-            <footer className="flex-col items-center justify-center p-4 bg-gray-500 text-white">
-              <small>&copy; 2025 portfolio</small>
-            </footer>
-          </div>
+              <footer className="flex-col items-center justify-center p-4 bg-gray-500 text-white">
+                <small>&copy; 2025 portfolio</small>
+              </footer>
+            </div>
         </div>
-
 
       </body>
     </html>

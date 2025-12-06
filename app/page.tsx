@@ -10,7 +10,7 @@ export default function Page() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 border-2 border-white rounded-full opacity-50">
         </div>
         
-        <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white opacity-50">
+        <div className="flex-col flex-row absolute top-1/2 left-0 w-full h-0.5 bg-white opacity-50">
         </div>
         
         {/*選手１（ブログ)のへのリンク設置*/ }
