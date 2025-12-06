@@ -33,7 +33,7 @@ function Page() {
         </div>
 
         {/* スキル一覧セクション */}
-        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-8">
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-8 overflow-y-auto max-h-96">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">スキル一覧</h2>
           <p className="text-sm sm:text-base text-gray-600 mb-6">グラフとしてわかりやすく記載しております。<br />※個人的主観にはなるのでご了承ください</p>
           
