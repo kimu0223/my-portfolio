@@ -23,33 +23,33 @@ const skills = [
 
 function Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-8 overflow-y-auto">
       <div className="max-w-2xl mx-auto">
         {/* プロフィールヘッダー */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">{profile.age}</h1>
-          <div className="text-2xl text-indigo-600 font-semibold mb-4">{profile.name}</div>
-          <p className="text-gray-600 leading-relaxed">{profile.description}</p>
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-8 mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">{profile.age}</h1>
+          <div className="text-xl sm:text-2xl text-indigo-600 font-semibold mb-4">{profile.name}</div>
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{profile.description}</p>
         </div>
 
         {/* スキル一覧セクション */}
-        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-8 overflow-y-auto max-h-96">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">スキル一覧</h2>
-          <p className="text-sm sm:text-base text-gray-600 mb-6">グラフとしてわかりやすく記載しております。<br />※個人的主観にはなるのでご了承ください</p>
+        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-8">
+          <h2 className="text-xl sm:text-3xl font-bold text-gray-800 mb-2">スキル一覧</h2>
+          <p className="text-xs sm:text-base text-gray-600 mb-6">グラフとしてわかりやすく記載しております。<br />※個人的主観にはなるのでご了承ください</p>
           
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {skills.map((skill, index) => (
               <div key={index} className="flex items-center gap-2 sm:gap-4">
-                <span className="w-16 sm:w-24 text-xs sm:text-sm font-semibold text-gray-700 flex-shrink-0">{skill.name}</span>
+                <span className="w-14 sm:w-24 text-xs sm:text-sm font-semibold text-gray-700 flex-shrink-0 truncate">{skill.name}</span>
                 <div className="flex-1 min-w-0">
-                  <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <div className="w-full bg-gray-200 rounded-full h-2 sm:h-3 overflow-hidden">
                     <div 
                       className="bg-gradient-to-r from-indigo-500 to-blue-500 h-full rounded-full transition-all duration-500"
                       style={{ width: `${skill.value}%` }}
                     />
                   </div>
                 </div>
-                <span className="w-10 sm:w-12 text-right text-xs sm:text-sm font-bold text-indigo-600 flex-shrink-0">{skill.value}%</span>
+                <span className="w-8 sm:w-12 text-right text-xs sm:text-sm font-bold text-indigo-600 flex-shrink-0">{skill.value}%</span>
               </div>
             ))}
           </div>
